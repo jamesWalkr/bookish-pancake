@@ -1,0 +1,9 @@
+/Users/jameswalker/eclipse-workspace/youtube-clone/src/main/java/com/example/models/VidoeStatus.java
+/Users/jameswalker/eclipse-workspace/youtube-clone/src/main/java/com/example/services/VideoService.java
+/Users/jameswalker/eclipse-workspace/youtube-clone/src/main/java/com/example/services/FileService.java
+/Users/jameswalker/eclipse-workspace/youtube-clone/src/main/java/com/example/models/Video.java
+/Users/jameswalker/eclipse-workspace/youtube-clone/src/main/java/com/example/controllers/VideoController.java
+/Users/jameswalker/eclipse-workspace/youtube-clone/src/main/java/com/example/models/Comment.java
+/Users/jameswalker/eclipse-workspace/youtube-clone/src/main/java/com/example/services/S3Service.java
+/Users/jameswalker/eclipse-workspace/youtube-clone/src/main/java/com/example/models/User.java
+/Users/jameswalker/eclipse-workspace/youtube-clone/src/main/java/com/example/YoutubeCloneApplication.java
