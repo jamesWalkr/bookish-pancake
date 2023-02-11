@@ -1,41 +1,20 @@
 package com.example.models;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.springframework.data.annotation.Id;
 
-
-@Table(name="commment")
 public class Comment {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
 	private Integer id;
-	
-	
 	private String text;
-	
-	
-	@Column(name="author_id")
 	private Integer authorId;
-	
-	@Column(name="like_count")
 	private Integer likeCount;
-	
-	@Column(name="dislike_count")
 	private Integer dislikeCount;
 
-	
-	
 	
 	public Comment() {
 		super();
 	}
-
-
 
 
 	public Comment(Integer id, String text, Integer authorId, Integer likeCount, Integer dislikeCount) {

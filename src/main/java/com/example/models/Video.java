@@ -1,48 +1,27 @@
 package com.example.models;
 
 import java.util.List;
+
 import java.util.Set;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-@Table(name="video")
+@Document(value="Video")
 public class Video {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	
+	private String id;
 	private String title;
-	
 	private String description;
-	
-	@Column(name="user_id")
 	private Integer userId;
-	
 	private Integer likes;
-	
 	private Integer disLikes;
-	
 	private Set<String> tags;
-	
-	@Column(name="video_url")
 	private String videoUrl;
-	
-	@Column(name="video_status")
-	private VidoeStatus videoStatus;
-	
-	@Column(name="view_count")
+	private VideoStatus videoStatus;
 	private Integer viewCount;
-	
-	@Column(name="comment_list")
-	@OneToMany(cascade = CascadeType.ALL)
+	private String thumbnailUrl;
 	private List<Comment> commentList;
-	
 	
 	
 	public Video() {
@@ -50,9 +29,9 @@ public class Video {
 	}
 
 
-
-	public Video(Integer id, String title, String description, Integer userId, Integer likes, Integer disLikes,
-			Set<String> tags, String videoUrl, VidoeStatus videoStatus, Integer viewCount, List<Comment> commentList) {
+	public Video(String id, String title, String description, Integer userId, Integer likes, Integer disLikes,
+			Set<String> tags, String videoUrl, VideoStatus videoStatus, Integer viewCount, String thumbnailUrl,
+			List<Comment> commentList) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -64,21 +43,19 @@ public class Video {
 		this.videoUrl = videoUrl;
 		this.videoStatus = videoStatus;
 		this.viewCount = viewCount;
+		this.thumbnailUrl = thumbnailUrl;
 		this.commentList = commentList;
 	}
 
 
-
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
 
-
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
-
 
 
 	public String getTitle() {
@@ -86,11 +63,9 @@ public class Video {
 	}
 
 
-
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
 
 
 	public String getDescription() {
@@ -98,11 +73,9 @@ public class Video {
 	}
 
 
-
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
 
 
 	public Integer getUserId() {
@@ -110,11 +83,9 @@ public class Video {
 	}
 
 
-
 	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
-
 
 
 	public Integer getLikes() {
@@ -122,11 +93,9 @@ public class Video {
 	}
 
 
-
 	public void setLikes(Integer likes) {
 		this.likes = likes;
 	}
-
 
 
 	public Integer getDisLikes() {
@@ -134,11 +103,9 @@ public class Video {
 	}
 
 
-
 	public void setDisLikes(Integer disLikes) {
 		this.disLikes = disLikes;
 	}
-
 
 
 	public Set<String> getTags() {
@@ -146,11 +113,9 @@ public class Video {
 	}
 
 
-
 	public void setTags(Set<String> tags) {
 		this.tags = tags;
 	}
-
 
 
 	public String getVideoUrl() {
@@ -158,23 +123,19 @@ public class Video {
 	}
 
 
-
 	public void setVideoUrl(String videoUrl) {
 		this.videoUrl = videoUrl;
 	}
 
 
-
-	public VidoeStatus getVideoStatus() {
+	public VideoStatus getVideoStatus() {
 		return videoStatus;
 	}
 
 
-
-	public void setVideoStatus(VidoeStatus videoStatus) {
+	public void setVideoStatus(VideoStatus videoStatus) {
 		this.videoStatus = videoStatus;
 	}
-
 
 
 	public Integer getViewCount() {
@@ -182,11 +143,19 @@ public class Video {
 	}
 
 
-
 	public void setViewCount(Integer viewCount) {
 		this.viewCount = viewCount;
 	}
 
+
+	public String getThumbnailUrl() {
+		return thumbnailUrl;
+	}
+
+
+	public void setThumbnailUrl(String thumbnailUrl) {
+		this.thumbnailUrl = thumbnailUrl;
+	}
 
 
 	public List<Comment> getCommentList() {
@@ -194,19 +163,24 @@ public class Video {
 	}
 
 
-
 	public void setCommentList(List<Comment> commentList) {
 		this.commentList = commentList;
 	}
-
 
 
 	@Override
 	public String toString() {
 		return "Video [id=" + id + ", title=" + title + ", description=" + description + ", userId=" + userId
 				+ ", likes=" + likes + ", disLikes=" + disLikes + ", tags=" + tags + ", videoUrl=" + videoUrl
-				+ ", viewCount=" + viewCount + "]";
+				+ ", videoStatus=" + videoStatus + ", viewCount=" + viewCount + ", thumbnailUrl=" + thumbnailUrl
+				+ ", commentList=" + commentList + "]";
 	}
+	
+	
+	
+	
+	
+
 	
 	
 	
