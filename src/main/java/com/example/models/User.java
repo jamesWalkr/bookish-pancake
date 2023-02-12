@@ -3,49 +3,23 @@ package com.example.models;
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-
-@Table(name="users")
+@Document(value="User")
 public class User {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	
-	@Column(name="first_name")
+	private String id;
 	private String firstName;
-	
-	@Column(name="last_name")
 	private String lastName;
-	
-	@Column(name="full_name")
 	private String fullName;
-	
-	
 	private String email;
-	
-	@Column(name="subscribed_to_users")
 	private Set<String> subscribedToUsers;
-	
-	
 	private Set<String> subscribers;
-	
-	@Column(name="video_history")
 	private List<String> videoHistory;
-	
-	@Column(name="liked_videos")
 	private Set<String> likedVideos;
-	
-	@Column(name="disliked_vidoes")
-	private Set<String> disLikedVideos;
-
-	
-	
+	private Set<String> dislikedVideos;
 	
 	
 	public User() {
@@ -53,12 +27,9 @@ public class User {
 	}
 
 
-
-
-
-	public User(Integer id, String firstName, String lastName, String fullName, String email,
+	public User(String id, String firstName, String lastName, String fullName, String email,
 			Set<String> subscribedToUsers, Set<String> subscribers, List<String> videoHistory, Set<String> likedVideos,
-			Set<String> disLikedVideos) {
+			Set<String> dislikedVideos) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -69,27 +40,18 @@ public class User {
 		this.subscribers = subscribers;
 		this.videoHistory = videoHistory;
 		this.likedVideos = likedVideos;
-		this.disLikedVideos = disLikedVideos;
+		this.dislikedVideos = dislikedVideos;
 	}
 
 
-
-
-
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
 
-
-
-
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
-
-
-
 
 
 	public String getFirstName() {
@@ -97,15 +59,9 @@ public class User {
 	}
 
 
-
-
-
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-
-
-
 
 
 	public String getLastName() {
@@ -113,15 +69,9 @@ public class User {
 	}
 
 
-
-
-
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
-
-
 
 
 	public String getFullName() {
@@ -129,15 +79,9 @@ public class User {
 	}
 
 
-
-
-
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
-
-
-
 
 
 	public String getEmail() {
@@ -145,15 +89,9 @@ public class User {
 	}
 
 
-
-
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-
-
 
 
 	public Set<String> getSubscribedToUsers() {
@@ -161,15 +99,9 @@ public class User {
 	}
 
 
-
-
-
 	public void setSubscribedToUsers(Set<String> subscribedToUsers) {
 		this.subscribedToUsers = subscribedToUsers;
 	}
-
-
-
 
 
 	public Set<String> getSubscribers() {
@@ -177,15 +109,9 @@ public class User {
 	}
 
 
-
-
-
 	public void setSubscribers(Set<String> subscribers) {
 		this.subscribers = subscribers;
 	}
-
-
-
 
 
 	public List<String> getVideoHistory() {
@@ -193,15 +119,9 @@ public class User {
 	}
 
 
-
-
-
 	public void setVideoHistory(List<String> videoHistory) {
 		this.videoHistory = videoHistory;
 	}
-
-
-
 
 
 	public Set<String> getLikedVideos() {
@@ -209,40 +129,39 @@ public class User {
 	}
 
 
-
-
-
 	public void setLikedVideos(Set<String> likedVideos) {
 		this.likedVideos = likedVideos;
 	}
 
 
-
-
-
-	public Set<String> getDisLikedVideos() {
-		return disLikedVideos;
+	public Set<String> getDislikedVideos() {
+		return dislikedVideos;
 	}
 
 
-
-
-
-	public void setDisLikedVideos(Set<String> disLikedVideos) {
-		this.disLikedVideos = disLikedVideos;
+	public void setDislikedVideos(Set<String> dislikedVideos) {
+		this.dislikedVideos = dislikedVideos;
 	}
-
-
-
 
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", fullName=" + fullName
 				+ ", email=" + email + ", subscribedToUsers=" + subscribedToUsers + ", subscribers=" + subscribers
-				+ ", videoHistory=" + videoHistory + ", likedVideos=" + likedVideos + ", disLikedVideos="
-				+ disLikedVideos + "]";
+				+ ", videoHistory=" + videoHistory + ", likedVideos=" + likedVideos + ", dislikedVideos="
+				+ dislikedVideos + "]";
 	}
+	
+	
+	
+
+	
+	
+	
+	
+	
+
+
 	
 	
 	
